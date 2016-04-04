@@ -63,7 +63,7 @@ openvpn_use_pam_users: []                         # If empty use system users
                                                   # otherwise use users from the option
                                                   # openvpn_use_pam_users:
                                                   # - { name: user, password: password }
-                                                  
+
 # Use LDAP authentication (default is disabled)
 openvpn_use_ldap: no
 openvpn_ldap_tlsenable: 'no'
@@ -93,12 +93,13 @@ Example:
   - Stouts.openvpn
 
   vars:
-  openvpn_use_pam: yes
-  openvpn_clients: [myvpn]
-  openvpn_use_pam_users:
-  - { name: user1, password: password1 }
-  - { name: user2, password: password2 }
-
+  openvpn_use_pam: no
+  openvpn_clients:
+  - {
+    name: 'John Doe',
+    login: 'jdoe',
+    ipv4: '1.2.3.4'
+  }
 ```
 
 Install and copy client's configuration from `/etc/openvpn/keys/myvpn.tar.gz` file.
