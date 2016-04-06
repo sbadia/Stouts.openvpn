@@ -2,4 +2,9 @@
 # Do NOT modify this file by hand!
 
 # {{ item.name }} / {{ item.fullname }}
-ifconfig-push {{ item.ipv4 }} 255.255.255.0
+ifconfig-push {{ item.ipv4 }} 255.255.254.0
+{% if item.ops %}
+push route "10.10.0.0 255.255.240.0"
+{% endif %}
+push route "10.10.32.0 255.255.240.0"
+push route "10.10.48.0 255.255.240.0"
